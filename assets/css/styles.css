@@ -1,0 +1,50 @@
+
+* {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2vh 3vw 0 3vw;
+}
+header h1 {
+  display: flex;
+  justify-content: center;
+  margin: 8vh 0 4vh 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 6vh 0 0 0;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 4vh 0;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 30vw;
+}
+
+button {
+  background-color: rgba(0, 136, 255, 0.626);
+  height: 10vh;
+  width: 20vw;
+  border: 3px solid black;
+  border-radius: 6px;
+  margin: 0.8vh 1vw;
+}
+button:hover {
+  box-shadow: 0.8px 1px rgb(119, 119, 119);
+  height: 11vh;
+  width: 21vw;
+}
