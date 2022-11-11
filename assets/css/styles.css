@@ -18,21 +18,40 @@ header h1 {
 main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 6vh 0 0 0;
 }
 
-.question {
+#menuScreen {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh 0;
+}
+
+#scorePage {
+  display: none;
+}
+
+#question {
+  display: none;
   align-items: center;
   justify-content: center;
   margin: 0 0 4vh 0;
 }
 
-.answers {
-  display: flex;
+#answers {
+  display: none;
   flex-direction: column;
   justify-content: flex-start;
   margin: 0 30vw;
+}
+
+#gameOver {
+  display: none;
+  justify-content: center;
+  margin: 5vh 0;
 }
 
 button {
