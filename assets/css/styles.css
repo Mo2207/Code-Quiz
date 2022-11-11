@@ -32,6 +32,9 @@ main {
 
 #scorePage {
   display: none;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5vh 0 10vh;
 }
 
 #question {
@@ -39,6 +42,11 @@ main {
   align-items: center;
   justify-content: center;
   margin: 0 0 4vh 0;
+}
+
+#startQuiz {
+  justify-content: center;
+  align-items: center;
 }
 
 #answers {
@@ -62,6 +70,11 @@ button {
   border-radius: 6px;
   margin: 0.8vh 1vw;
 }
+
+#answers button {
+  background-color: rgba(0, 136, 255, 0.626);
+}
+
 button:hover {
   box-shadow: 0.8px 1px rgb(119, 119, 119);
   height: 11vh;

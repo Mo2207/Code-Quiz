@@ -31,12 +31,15 @@ let timerDisplay = document.querySelector("#timer");
 // ----- Start Quiz and Game over-----
 let start = document.querySelector("#startQuiz");
 let end = document.querySelector("#gameOver");
+let yourScore = document.querySelector("#yourScore");
+let scores = document.querySelector("#scorePage");
 
 // ----- Question -----
 let question = document.querySelector("#question");
 
 // ----- Answers ------
 let answersSect = document.querySelector("#answers");
+let answersSectBtn = document.querySelector("#answers button");
 let answer1 = document.querySelector("#answer1");
 let answer2 = document.querySelector("#answer2");
 let answer3 = document.querySelector("#answer3");
@@ -52,7 +55,7 @@ let setQuestionAnswer = () => {
 
   // sets the question's text content
   question.textContent = quizQuestions[currentQuestion].question;
-  // sets all the answers
+  // sets all the answers values
   answer1.textContent = quizQuestions[currentQuestion].possibleAnswers[0];
   answer2.textContent = quizQuestions[currentQuestion].possibleAnswers[1];
   answer3.textContent = quizQuestions[currentQuestion].possibleAnswers[2];
@@ -60,9 +63,15 @@ let setQuestionAnswer = () => {
 }
 
 let startQuiz = () => {
+  // initializes the users current score at beginning of quiz
+  let userScore = localStorage.setItem("userScore", 0)
+  console.log(userScore)
+
   setQuestionAnswer();
   startTimer();
 
+  // modifies the elements on the page
+  scores.style.display = "none";
   end.style.display = "none";
   start.style.display = "none";
   question.style.display = "flex";
@@ -71,10 +80,15 @@ let startQuiz = () => {
 
 let gameOver = () => {
   console.log("game over");
+  yourScore.appendChild(userScore);
+  // modifies the elements on the page
+  scores.style.display = "flex"
   end.style.display = "flex";
   start.style.display = "flex";
   question.style.display = "none";
   answersSect.style.display = "none";
+
+  // resets currentQuestion now that the game is over
   currentQuestion = 0;
 }
 
@@ -101,6 +115,8 @@ let startTimer = () => {
 let pickAnswer = (e) => {
   if (e.target.textContent == quizQuestions[currentQuestion].correctAnswer) {
     console.log("Correct!");
+    localStorage.userScore++;
+
     currentQuestion++;
     if (currentQuestion == quizQuestions.length) {
       gameOver();
