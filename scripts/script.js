@@ -38,6 +38,7 @@ let start = document.querySelector("#startQuiz");
 let end = document.querySelector("#gameOver");
 let yourScore = document.querySelector("#yourScore");
 let scores = document.querySelector("#scorePage");
+let scoreTable = document.querySelector("#scoreTable")
 
 // ----- Question -----
 let question = document.querySelector("#question");
@@ -77,33 +78,15 @@ let startQuiz = () => {
   setQuestionAnswer();
   startTimer();
 
+  // makes sure userScore is at 0 to start
+  localStorage.userScore = 0;
+
   // modifies the elements on the page
   scores.style.display = "none";
   end.style.display = "none";
   start.style.display = "none";
   question.style.display = "flex";
   answersSect.style.display = "flex";
-}
-
-let gameOver = () => {
-  console.log("game over");
-  // displays userScore to scorePage
-  yourScore.innerHTML = `Your score: ${localStorage.userScore}`;
-
-  // modifies the elements on the page
-  scores.style.display = "flex"
-  end.style.display = "flex";
-  start.style.display = "flex";
-  start.textContent = "Restart Quiz";
-  question.style.display = "none";
-  answersSect.style.display = "none";
-
-  // resets currentQuestion now that the game is over
-  currentQuestion = 0;
-  // resets userScore now that the game is over
-  localStorage.userScore = 0;
-  // end the counter
-  count = 1;
 }
 
 let count;
@@ -152,6 +135,49 @@ let pickAnswer = (e) => {
   }
 }
 
+let gameOver = () => {
+  console.log("game over");
+  // displays userScore to scorePage
+  yourScore.innerHTML = `Your score: ${localStorage.userScore}`;
+
+  // modifies the elements on the page
+  scores.style.display = "flex"
+  end.style.display = "flex";
+  start.style.display = "flex";
+  start.textContent = "Restart Quiz";
+  question.style.display = "none";
+  answersSect.style.display = "none";
+
+  // resets currentQuestion now that the game is over
+  currentQuestion = 0;
+  // end the counter
+  count = 1;
+}
+let form = document.querySelector("#form");
+console.log(form)
+
+let initalScore = (e) => {
+  e.preventDefault();
+
+  if (initials.value == "") {
+    alert("Input required for initials!");
+    return null;
+  } else {
+    // adds initials and score to localStorage when submitted
+    localStorage.setItem(initials.value, localStorage.userScore)
+
+    // adds initials and score to table
+    let row = scoreTable.insertRow(-1);
+    let val1 = row.insertCell(0);
+    let val2 = row.insertCell(1);
+    val1.innerHTML = initials.value.toUpperCase();
+    val2.innerHTML = localStorage.userScore;
+    initials.value = "";
+  }
+
+  
+}
+
 // ----- Event Listeners -----
 
 start.addEventListener("click", startQuiz);
@@ -159,5 +185,6 @@ answer1.addEventListener("click", pickAnswer);
 answer2.addEventListener("click", pickAnswer);
 answer3.addEventListener("click", pickAnswer);
 answer4.addEventListener("click", pickAnswer);
-
+highScores.addEventListener("click", gameOver);
+form.addEventListener("submit", initalScore);
 

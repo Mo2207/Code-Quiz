@@ -30,11 +30,47 @@ main {
   margin: 5vh 0;
 }
 
+#gameOver {
+  display: none;
+  justify-content: center;
+  margin: 0 5vh;
+  font-size: 1.6em;
+}
+
 #scorePage {
   display: none;
   justify-content: center;
   flex-direction: column;
-  margin: 5vh 0 10vh;
+  margin-bottom: 3vh;
+}
+
+#scoreTable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6vh;
+}
+tbody {
+  display: flex;
+  flex-direction: column; 
+}
+tr  {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.5vh 2vw;
+}
+th  {
+  margin: 1vh 0.6vw;
+}
+
+#yourScore {
+  display: flex;
+  justify-content: center;
+}
+
+#startQuiz {
+  justify-content: center;
+  align-items: center;
 }
 
 #question {
@@ -43,23 +79,14 @@ main {
   justify-content: center;
   margin: 0 0 4vh 0;
 }
-
-#startQuiz {
-  justify-content: center;
-  align-items: center;
-}
-
 #answers {
   display: none;
   flex-direction: column;
   justify-content: flex-start;
   margin: 0 30vw;
 }
-
-#gameOver {
-  display: none;
-  justify-content: center;
-  margin: 5vh 0;
+#answers button {
+  background-color: rgba(0, 136, 255, 0.626);
 }
 
 button {
@@ -70,11 +97,6 @@ button {
   border-radius: 6px;
   margin: 0.8vh 1vw;
 }
-
-#answers button {
-  background-color: rgba(0, 136, 255, 0.626);
-}
-
 button:hover {
   box-shadow: 0.8px 1px rgb(119, 119, 119);
   height: 11vh;
