@@ -10,11 +10,11 @@ This quiz is a minigame that has a few basic javascript questions that you need 
 ## Installation:
 This project can be viewed using the live server or view in default browser extensions in VScode.
 
-Or it can be viewed on github pages here: 
+Or it can be viewed on github pages here: https://mo2207.github.io/Code-Quiz/
 
 ## Usage:
-!["picture of javscript code-quiz code"]()
-!["picture of javscript code-quiz page"]()
+!["picture of javscript code-quiz code"](./assets/images/code-quiz-page.png)
+!["picture of javscript code-quiz page"](./assets/images/code-quiz-code.png)
 
 ## Credits:
 This project was done by myself once again, and with a lot of google as usual.
